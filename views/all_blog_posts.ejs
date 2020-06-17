@@ -1,0 +1,8 @@
+<ul class="all-blog-posts">
+    <% for(let i=0;i<blogPosts.length;i++) { %>
+        <li>
+            <h2><%= blogPosts[i].post_title %></h2>
+            <p><%= blogPosts[i].post_content %></p>
+        </li>
+    <% } %>
+</ul>
