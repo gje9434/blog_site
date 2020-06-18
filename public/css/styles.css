@@ -14,6 +14,16 @@ body {
     align-items: flex-start;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 70vw;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
 .navbar {
     background-color: rgb(241, 238, 238);
     width: 100%;
@@ -70,10 +80,42 @@ body {
     justify-content: flex-start;
     color: black;
     list-style: none;
-    margin-left: 15vw;
     padding: 0px;
 }
 
-.blog-post {
-    flex-grow: 1;
+.blog-post-time {
+    color: rgb(211, 205, 205);   
+}
+
+.add-post-title {
+    margin-bottom: 3vh;
+    width: 30%;
+}
+
+form {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.add-post-content {
+    width: 50vw;
+    height: 20vh;
+    margin-bottom: 2vh;
+    vertical-align: text-top;
+}
+
+button {
+    background-color: #12947f;
+    color: white;
+    border-radius: 5px;
+    border-style: none;
+    width: 4vw;
+    height: 3vh;
+}
+
+button:hover {
+    color: #12947f;
+    background-color: rgb(221, 216, 216);
 }

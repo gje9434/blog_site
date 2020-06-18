@@ -1,8 +1,18 @@
 <ul class="all-blog-posts">
-    <% for(let i=0;i<blogPosts.length;i++) { %>
+    <% if(blogPosts.length == 0) { %>
+        <h2>No posts have been added. Check back later</h2>
+    <% } else { %>
+        <li>
+            <h2><%= blogPosts[0].post_title %></h2>
+            <p><%= blogPosts[0].post_content %></p>
+            <p class="blog-post-time"><%= blogPosts[0].created %></p>
+        </li>
+        <% for(let i=1;i<blogPosts.length;i++) { %>
         <li>
             <h2><%= blogPosts[i].post_title %></h2>
-            <p><%= blogPosts[i].post_content %></p>
+            <p><%= blogPosts[i].post_content %> &nbsp<a href="" style="display: inline" value=<%= blogPosts[i].id %>>Read more...</a></p>
+            <p class="blog-post-time"><%= blogPosts[i].created %></p>
         </li>
+        <% } %>
     <% } %>
 </ul>
