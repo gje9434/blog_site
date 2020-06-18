@@ -1,0 +1,10 @@
+<%- include("header"); -%>
+<%- include("navbar"); -%>
+<form action="/compose" method="POST">
+    <label for="title">Title:</label>
+    <input class="add-post-title" type="text" name="title">
+    <label for="content">Content:</label>
+    <textarea class="add-post-content" name="content"></textarea>
+    <button type="submit">Post</button>
+</form>
+<%- include("footer"); -%>
