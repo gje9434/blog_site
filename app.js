@@ -58,6 +58,20 @@ app.get("/compose", (req, res) => {
     res.render("compose.ejs");
 })
 
+// view a single post after clicking "read more" link
+app.get("/posts/:id", (req, res) => {
+    let text = "SELECT * from blog_posts WHERE id = $1";
+    let values = [req.params.id];
+    db.client.query(text, values, (error, response) => {
+        if(error) {
+            console.log(error.stack);
+        } else {
+            response.rows[0].created = response.rows[0].created.toDateString();
+            res.render("single_blog_post.ejs", { blogPost: response.rows[0]});
+        }
+    })
+})
+
 // add a new blog post
 app.post("/compose", (req, res) => {
     let newPostTitle = req.body.title;
