@@ -4,6 +4,7 @@ body {
     font-family: 'Lato', sans-serif;
     display: flex;
     flex-direction: column;
+    font-size: 2rem;
 }
 
 .sticky {
@@ -138,6 +139,7 @@ h1 {
 .add-post-title {
     margin-bottom: 3vh;
     width: 30%;
+    font-size: 2rem;
 }
 
 .compose {
@@ -152,6 +154,7 @@ h1 {
     height: 20vh;
     margin-bottom: 2vh;
     vertical-align: text-top;
+    font-size: 2rem;
 }
 
 button {
