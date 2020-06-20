@@ -57,7 +57,7 @@ app.get("/posts/:id", (req, res) => {
     let values = [req.params.id];
     db.client.query(text, values, (error, response) => {
         if(error) {
-            console.log(error.stack);
+            res.render("error.ejs", { error: error.stack });
         } else {
             response.rows[0].created = response.rows[0].created.toDateString();
             res.render("single_blog_post.ejs", { blogPost: response.rows[0], pageTitle: response.rows[0].post_title });
@@ -74,7 +74,7 @@ app.post("/compose", (req, res) => {
     
     db.client.query(text, values, (error, response) => {
         if(error) {
-            console.log(error.stack);
+            res.render("error.ejs", { error: error.stack });
         } else {
             res.redirect("/");
         }
