@@ -10,14 +10,7 @@ app.listen(3000, () => {
     console.log("Server started");
 })
 
-/* if post is longer than 80 chars, 
-display only first 80 chars + "..." 
-and provide link to view entire post
-in a new page. Latest post is always
-viewable in full on homepage, hence 
-starting the for-loop at 1
-*/
-shortenPosts = function(blogPosts) {
+shortenPostsTo80chars = function(blogPosts) {
     for(let i=1;i<blogPosts.length;i++) {
         if(blogPosts[i].post_content.length > 80) {
             let shortenedPost = blogPosts[i].post_content.slice(0, 50)+"...";
@@ -41,21 +34,21 @@ app.get("/", (req, res) => {
                 post.created = post.created.toDateString();
                 return post;
             })
-            res.render("index.ejs", { blogPosts: shortenPosts(blogPosts) });
+            res.render("index.ejs", { blogPosts: shortenPostsTo80chars(blogPosts), pageTitle: "Home" });
         }
     })   
 })
 
 app.get("/about", (req, res) => {
-    res.render("about_us.ejs");
+    res.render("about_us.ejs", { pageTitle: "About" });
 })
 
 app.get("/contact", (req, res) => {
-    res.render("contact_us.ejs")
+    res.render("contact_us.ejs", { pageTitle: "Contact" })
 })
 
 app.get("/compose", (req, res) => {
-    res.render("compose.ejs");
+    res.render("compose.ejs", { pageTitle: "Compose" });
 })
 
 // view a single post after clicking "read more" link
@@ -67,7 +60,7 @@ app.get("/posts/:id", (req, res) => {
             console.log(error.stack);
         } else {
             response.rows[0].created = response.rows[0].created.toDateString();
-            res.render("single_blog_post.ejs", { blogPost: response.rows[0]});
+            res.render("single_blog_post.ejs", { blogPost: response.rows[0], pageTitle: response.rows[0].post_title });
         }
     })
 })
