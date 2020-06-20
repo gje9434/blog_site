@@ -23,7 +23,7 @@ shortenPostsTo80chars = function(blogPosts) {
 app.get("/", (req, res) => {
     db.client.query("SELECT * FROM blog_posts",(error, response) => {
         if(error) {
-            console.log(error.stack);
+            res.render("error.ejs", { error: error.stack });
         } else {
             // sort posts by date order DESCENDING
             let blogPosts = response.rows.sort((a, b) => {
