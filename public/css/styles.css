@@ -97,6 +97,7 @@ h1 {
     .navbar {
         padding-top: 1vh;
         padding-bottom: 1vh;
+        justify-content: space-evenly;
     }
     .navbar-title {
         display: none;
